@@ -82,8 +82,12 @@ internal class ContainerView: UIView {
 
     fileprivate let backgroundView: UIView = {
         let view = UIView()
-        if !PKHUD.sharedHUD.disableDarkMode, #available(iOS 13.0, *) {
-            view.backgroundColor = UIColor.label.withAlphaComponent(0.25)
+        if #available(iOS 13.0, *) {
+            if !PKHUD.sharedHUD.disableDarkMode {
+                view.backgroundColor = UIColor.label.withAlphaComponent(0.25)
+            } else {
+                view.backgroundColor = UIColor(white: 0.0, alpha: 0.25)
+            }
         } else {
             view.backgroundColor = UIColor(white: 0.0, alpha: 0.25)
         }
