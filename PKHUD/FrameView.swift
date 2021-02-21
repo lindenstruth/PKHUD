@@ -13,7 +13,11 @@ import UIKit
 internal class FrameView: UIVisualEffectView {
 
     internal init() {
-        super.init(effect: UIBlurEffect(style: .light))
+        if #available(iOS 10.0, *) {
+            super.init(effect: UIBlurEffect(style: .regular))
+        } else {
+            super.init(effect: UIBlurEffect(style: .light))
+        }
         DispatchQueue.main.async {
             self.commonInit()
         }
@@ -28,13 +32,14 @@ internal class FrameView: UIVisualEffectView {
 
     private func commonInit() {
         if #available(iOS 13.0, *) {
-            backgroundColor = UIColor.clear
+            backgroundColor = UIColor.systemBackground
         } else {
             backgroundColor = UIColor(white: 0.8, alpha: 0.36)
         }
         layer.cornerRadius = 9.0
         layer.masksToBounds = true
-
+        content.backgroundColor = .clear
+        
         contentView.addSubview(content)
 
         let offset = 20.0
