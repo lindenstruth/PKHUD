@@ -33,11 +33,26 @@ open class PKHUDSuccessView: PKHUDSquareBaseView, PKHUDAnimating {
         #endif
 
         layer.fillColor   = nil
-        layer.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0).cgColor
+        if #available(iOS 13.0, *), !PKHUD.sharedHUD.disableDarkMode {
+            layer.strokeColor = UIColor.tertiaryLabel.cgColor
+        } else {
+            layer.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0).cgColor
+        }
         layer.lineWidth   = 6.0
         return layer
     }()
-
+    
+    open override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        if self.layer.sublayers?.contains(checkmarkShapeLayer) == true {
+            if #available(iOS 13.0, *), !PKHUD.sharedHUD.disableDarkMode {
+                checkmarkShapeLayer.strokeColor = UIColor.tertiaryLabel.cgColor
+            } else {
+                checkmarkShapeLayer.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0).cgColor
+            }
+        }
+    }
+    
     public init(title: String? = nil, subtitle: String? = nil) {
         super.init(title: title, subtitle: subtitle)
         layer.addSublayer(checkmarkShapeLayer)
