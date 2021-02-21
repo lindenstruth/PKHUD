@@ -37,11 +37,7 @@ open class PKHUDErrorView: PKHUDSquareBaseView, PKHUDAnimating {
 
         dash.fillColor   = nil
         if #available(iOS 13.0, *) {
-            if !PKHUD.sharedHUD.disableDarkMode {
-                dash.strokeColor = UIColor.tertiaryLabel.cgColor
-            } else {
-                dash.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0).cgColor
-            }
+            dash.strokeColor = UIColor.tertiaryLabel.cgColor
         } else {
             dash.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0).cgColor
         }
@@ -53,13 +49,8 @@ open class PKHUDErrorView: PKHUDSquareBaseView, PKHUDAnimating {
         super.draw(rect)
         if self.layer.sublayers?.contains(dashOneLayer) == true, self.layer.sublayers?.contains(dashTwoLayer) == true {
             if #available(iOS 13.0, *) {
-                if !PKHUD.sharedHUD.disableDarkMode {
-                    dashOneLayer.strokeColor = UIColor.tertiaryLabel.cgColor
-                    dashTwoLayer.strokeColor = UIColor.tertiaryLabel.cgColor
-                } else {
-                    dashOneLayer.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0).cgColor
-                    dashTwoLayer.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0).cgColor
-                }
+                dashOneLayer.strokeColor = UIColor.tertiaryLabel.cgColor
+                dashTwoLayer.strokeColor = UIColor.tertiaryLabel.cgColor
             } else {
                 dashOneLayer.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0).cgColor
                 dashTwoLayer.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0).cgColor

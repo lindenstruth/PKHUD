@@ -86,7 +86,6 @@ open class PKHUD: NSObject {
     }
 
     open var dimsBackground = true
-    open var disableDarkMode = false
     open var userInteractionOnUnderlyingViewsEnabled: Bool {
         get {
             return !container.isUserInteractionEnabled

@@ -34,11 +34,7 @@ open class PKHUDSuccessView: PKHUDSquareBaseView, PKHUDAnimating {
 
         layer.fillColor   = nil
         if #available(iOS 13.0, *) {
-            if !PKHUD.sharedHUD.disableDarkMode {
-                layer.strokeColor = UIColor.tertiaryLabel.cgColor
-            } else {
-                layer.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0).cgColor
-            }
+            layer.strokeColor = UIColor.tertiaryLabel.cgColor
         } else {
             layer.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0).cgColor
         }
@@ -50,11 +46,7 @@ open class PKHUDSuccessView: PKHUDSquareBaseView, PKHUDAnimating {
         super.draw(rect)
         if self.layer.sublayers?.contains(checkmarkShapeLayer) == true {
             if #available(iOS 13.0, *) {
-                if !PKHUD.sharedHUD.disableDarkMode {
-                    checkmarkShapeLayer.strokeColor = UIColor.tertiaryLabel.cgColor
-                } else {
-                    checkmarkShapeLayer.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0).cgColor
-                }
+                checkmarkShapeLayer.strokeColor = UIColor.tertiaryLabel.cgColor
             } else {
                 checkmarkShapeLayer.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0).cgColor
             }

@@ -35,11 +35,6 @@ public final class HUD {
         set { PKHUD.sharedHUD.dimsBackground = newValue }
     }
 
-    public static var disableDarkMode: Bool {
-        get { return PKHUD.sharedHUD.disableDarkMode }
-        set { PKHUD.sharedHUD.disableDarkMode = newValue }
-    }
-
     public static var allowsInteraction: Bool {
         get { return PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled  }
         set { PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = newValue }
