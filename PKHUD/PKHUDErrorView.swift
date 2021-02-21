@@ -36,7 +36,7 @@ open class PKHUDErrorView: PKHUDSquareBaseView, PKHUDAnimating {
         #endif
 
         dash.fillColor   = nil
-        if #available(iOS 13.0, *), !PKHUD.sharedHUD.disableDarkMode {
+        if !PKHUD.sharedHUD.disableDarkMode, #available(iOS 13.0, *) {
             dash.strokeColor = UIColor.tertiaryLabel.cgColor
         } else {
             dash.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0).cgColor
@@ -48,7 +48,7 @@ open class PKHUDErrorView: PKHUDSquareBaseView, PKHUDAnimating {
     open override func draw(_ rect: CGRect) {
         super.draw(rect)
         if self.layer.sublayers?.contains(dashOneLayer) == true, self.layer.sublayers?.contains(dashTwoLayer) == true {
-            if #available(iOS 13.0, *), !PKHUD.sharedHUD.disableDarkMode {
+            if !PKHUD.sharedHUD.disableDarkMode, #available(iOS 13.0, *) {
                 dashOneLayer.strokeColor = UIColor.tertiaryLabel.cgColor
                 dashTwoLayer.strokeColor = UIColor.tertiaryLabel.cgColor
             } else {

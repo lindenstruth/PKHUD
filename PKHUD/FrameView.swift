@@ -27,7 +27,7 @@ internal class FrameView: UIVisualEffectView {
     }
 
     private func commonInit() {
-        if #available(iOS 13.0, *), !PKHUD.sharedHUD.disableDarkMode {
+        if !PKHUD.sharedHUD.disableDarkMode, #available(iOS 13.0, *) {
             backgroundColor = UIColor.secondarySystemBackground.withAlphaComponent(0.36)
         } else {
             backgroundColor = UIColor(white: 0.8, alpha: 0.36)
